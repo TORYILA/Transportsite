@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR-Pay</title>
+    <link rel="stylesheet" href="qpage.css">
+</head>
+<body>
+   
+    <div id="qrcode">
+        <span>Scan the code to make payment</span>
+        <img class="qrimage" src="qr-code-scan.png" alt="">
+        <span id="regbtn" class="emergency">Regenerate QR code</span>
+    </div>
+    <div id="regmenu" class="regenerate">
+        <span>Are you sure?</span>
+        <div class="buttons">
+            <button>Regenerate</button>
+            <button>Abort</button>
+        </div>
+    </div>
+    <div class="bal">
+        <h3>₦2,000</h3>
+        <img src="view.png" alt="">
+        <span>Personal account - 22113345</span>
+       
+    </div>
+    <a href="paymentpage.html"><button id="topupbtn">TOP UP</button></a>
+    
+    
+    <footer>
+        
+        <a href="mainpage.html" id="direction"><img src="directionsw.png" alt=""></a>
+        <a href="stations.html" id="route"><img src="itinerary.png" alt=""></a>
+        <a id="qrpay"><img src="qr-code-blue.png" alt=""></a>
+    
+    </footer>
+</body>
+<script src="qrpage.js"></script>
+</html>

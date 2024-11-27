@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide Popup</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .stop-popup {
+      position: fixed;
+      bottom: -100%; /* Initially hidden */
+      left: 0;
+      height: 670px;
+      width: 100%;
+      background-color: black;
+      color: white;
+      transition: bottom 0.4s ease; /* Smooth slide effect */
+      z-index: 1000;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .stop-popup img {
+      width: 35px;
+    }
+
+    .busess {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .busess div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .bussec {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .open-popup-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .close-indicator {
+      width: 40px;
+      height: 5px;
+      background-color: gray;
+      border-radius: 5px;
+      margin: 10px auto;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+  <button class="open-popup-btn">Show Popup</button>
+
+  <div class="stop-popup" id="stopPopup">
+    <div class="close-indicator"></div>
+    <h3>Idu Junction Stop</h3>
+    <div class="busess">
+      <div class="bussec">
+        <div>
+          <img src="front-of-bus.png" alt="">
+          <span>BUS 222</span>
+        </div>
+        <span>N100</span>
+      </div>
+      <div class="bussec">
+        <div>
+          <img src="front-of-bus.png" alt="">
+          <span>BUS 333</span>
+        </div>
+        <span>N150</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const popup = document.getElementById('stopPopup');
+    const openBtn = document.querySelector('.open-popup-btn');
+    let startY = 0; // To track the initial touch position
+    let isDragging = false; // To track dragging status
+
+    // Show popup
+    openBtn.addEventListener('click', () => {
+      popup.style.bottom = '0';
+    });
+
+    // Start dragging
+    popup.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+      isDragging = true;
+    });
+
+    // Dragging
+    popup.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const currentY = e.touches[0].clientY;
+      const diffY = currentY - startY;
+
+      // Only allow dragging downwards
+      if (diffY > 0) {
+        popup.style.bottom = `-${diffY}px`;
+      }
+    });
+
+    // End dragging
+    popup.addEventListener('touchend', (e) => {
+      isDragging = false;
+
+      // If dragged down far enough, hide the popup
+      const diffY = e.changedTouches[0].clientY - startY;
+      if (diffY > 200) {
+        popup.style.bottom = '-100%'; // Hide popup
+      } else {
+        popup.style.bottom = '0'; // Reset to visible state
+      }
+    });
+  </script>
+</body>
+</html>
