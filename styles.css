@@ -1,24 +1,29 @@
 body {
-    margin: 0; 
-    padding: 0;
-    font-family: "Roboto", sans-serif;
-    background-color: #1d2538;
-    padding-bottom: 100px;
+
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        background-color: #1d2538;
+        padding-bottom: 100px;
     
 }
 html, body{
     overflow-x: hidden;
+    font-size: 16px;
 }
 #map-display {
     display: flex;
     position: relative;
     width: 100%;
-    height: 300px; 
+    height: 300px;
     background-image: url(Destinations-Abuja-2.jpg);
-    background-size: cover; 
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;
 }
+
+
+
 
 #map-display::before {
     content: ""; 
@@ -63,6 +68,15 @@ html, body{
     top: 80%; 
     display: flex;
     left: 6.5%;
+    height: 50px;
+}
+#search-input, #search-inputII, #search-input-pop {
+    width: 80%;
+    border-radius: 25px;
+    border: none;
+    background-color: #E0E1DC;
+    font-size: 1rem;
+    padding-left: 5%;
     height: 50px;
 }
 #search-input::placeholder{
@@ -135,7 +149,6 @@ footer{
     background-color: #1d2538;
     color: rgba(255, 255, 255, 0.705);
     height: 100px;
-    padding-bottom: 20px;
     font-size: 15px;
 }
 footer a{
@@ -237,10 +250,10 @@ footer img{
 }
 .search-popup{
     position: fixed;
-    bottom: -100%; /* Initially hidden */
+    bottom: -140%; /* Initially hidden */
     left: 0;
     right: 0;
-    height: 670px;
+    height: 80vh;
     background-color:#040a18;
     color: white;
     transition: bottom 0.4s ease; /* Smooth slide effect */
@@ -250,21 +263,15 @@ footer img{
     display: flex;
     flex-direction: column;
 }
-/* Normal input state */
-#search-input {
-    transition: all 0.4s ease;
-    position: relative;
-}
 
 /* Additional styles for transformed state */
 #search-input.transformed {
-    position: fixed;
-    top: 40%;
+    position: absolute;
     z-index: 1000; /* Above other elements */
-    
+   top: 30vh;
 }
 #search-input-pop, .favorites-pop{
-    position: absolute;
+    position: sticky;
     top: 5%;
     left: 6.5%;
     width: 80%;
@@ -287,8 +294,8 @@ footer img{
         position: fixed;
         left: 0;
         right: 0;
-        bottom: -100%; /* Start off-screen */
-        height: 700px;
+        bottom: -140%; /* Start off-screen */
+        height: 80vh;
         background-color: #040a18;
         color: white;
         transition: bottom 0.4s ease; /* Smooth slide effect */
@@ -299,7 +306,7 @@ footer img{
         flex-direction: column;
   }
   .detailed-direction{
-    margin-top: 200px;
+    margin-top: 100px;
     margin-left: 6.5%;
     height: 200px;
     display: flex;
@@ -317,7 +324,7 @@ footer img{
     font-size: 16px;
     padding-left: 5%;
     position: absolute;
-    top: 15%;
+    top: 10vh;
     display: flex;
     left: 6.5%;
     height: 40px;
