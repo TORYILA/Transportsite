@@ -11,13 +11,14 @@ html, body{
 }
 
 #qrcode{
-    margin-top: 40%;
+    margin-top: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .qrimage{
-    min-width: 200px;
+    width: 250px;
+    max-width: 400px;
 }
 #qrcode span:first-child{
     color: rgba(209, 200, 200, 0.808);
@@ -25,11 +26,11 @@ html, body{
     margin-top: 10px;
 }
 .bal{
-    color: #e0e1dc;
+    color: black;
     position: absolute;
-    bottom: 250px;
+    bottom: 185px;
     left: 10%;
-    background-color: rgb(39, 36, 36);
+    background-color: #7c8da5;
     width: 80%;
     border-radius: 10px;
 }
@@ -39,19 +40,19 @@ html, body{
     left: 9%;
     font-style: italic;
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.397);
+    color: black;
 }
 .bal h3{
     margin-left: 10%;
 }
 #topupbtn{
     position: absolute;
-    bottom: 200px;
+    bottom: 140px;
     height: 40px;
     width: 80%;
     left: 10%;
-    background-color: rgb(43, 4, 134);
-    color: white;
+    background-color: #e0e1dc;
+    color:#1d2538;
     border: none;
     font-size: 20px;
     font-weight: bold;
@@ -139,7 +140,6 @@ footer{
     background-color: #1d2538;
     color: rgba(255, 255, 255, 0.705);
     height: 100px;
-    padding-bottom: 20px;
 }
 footer a{
     width: 150px;
